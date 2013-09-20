@@ -16,8 +16,5 @@ angular.module('angularAppApp', ['ngRoute', 'restangular'])
       });
 
       RestangularProvider.setBaseUrl('https://qa-apiv2.wuaki.tv/');
-      // RestangularProvider.setDefaultHttpFields({
-      //   withCredentials: false
-      // });
 
   });

@@ -8,15 +8,6 @@ angular.module('angularAppApp')
         'Karma'
       ];
       
-
-      // $http({method: 'GET', url: 'https://qa-apiv2.wuaki.tv/version.json'}).
-      //   success(function(data, status) {
-      //     console.log(data.api);
-      //     $scope.api = data.api;
-      //   }).
-      //   error(function(data, status) {
-      //     console.log(data);
-      // });
       $scope.api = Restangular.all("version.json").getList();
       console.log($scope.api);
     }]);
