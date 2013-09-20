@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularAppApp')
+angular.module('app')
 .directive('navbar', function () {
   return {
     restrict: 'E',

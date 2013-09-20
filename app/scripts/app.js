@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('angularAppApp', ['ngRoute', 'restangular'])
+angular.module('app', ['ngRoute', 'restangular'])
   .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/frontpage.html',
+        controller: 'FrontpageCtrl'
       })
       .when('/movies', {
         templateUrl: 'views/movies.html',
@@ -16,5 +16,6 @@ angular.module('angularAppApp', ['ngRoute', 'restangular'])
       });
 
       RestangularProvider.setBaseUrl('https://qa-apiv2.wuaki.tv/');
+      RestangularProvider.setRequestSuffix('.json');
 
   });
