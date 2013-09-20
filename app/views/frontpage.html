@@ -2,9 +2,12 @@
   <h1>wuaki.tv</h1>
   <p>You now have</p>
   <ul>
-      <li ng-repeat="list in lists">{{list.name}}</li>
+      <li ng-repeat="list in lists">
+        <p>{{list.name}}</p>
+        <ul>
+          <li ng-repeat="movie in list.movies">{{movie.title}}</li>
+        </ul>
+      </li>
   </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
 </div>
-<p>{{api.version}}</p>
+<p>api v.{{api.version}}</p>
