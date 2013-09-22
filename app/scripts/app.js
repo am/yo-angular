@@ -7,7 +7,11 @@ angular.module('app', ['ngRoute', 'restangular'])
         templateUrl: 'views/frontpage.html',
         controller: 'FrontpageCtrl'
       })
-      .when('/movies', {
+      .when('/frontpage', {
+        templateUrl: 'views/frontpage.html',
+        controller: 'FrontpageCtrl'
+      })
+      .when('/movies/:id', {
         templateUrl: 'views/movies.html',
         controller: 'MoviesCtrl'
       })
@@ -15,7 +19,7 @@ angular.module('app', ['ngRoute', 'restangular'])
         redirectTo: '/'
       });
 
-      RestangularProvider.setBaseUrl('https://qa-apiv2.wuaki.tv/');
+      RestangularProvider.setBaseUrl('https://uk-playground-api.wuaki.tv/');
       RestangularProvider.setRequestSuffix('.json');
 
   });

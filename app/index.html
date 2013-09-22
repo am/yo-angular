@@ -27,13 +27,28 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav ng-controller='NavbarCtrl' class='navbar'>
-      <navbar />
-    </nav>
 
+    <div class='container'>
 
-    <div class="container" ng-view="">
+      <!-- navbar -->
+      <div>
+        <div class='w-header row'>
+          <div class='container'>
+            <h1><a href="#/frontpage">wuaki.tv</a></h1>
+          </div>
+        </div>
+
+        <div ng-controller='NavbarCtrl'>
+          <navbar class='row' />
+        </div>
+      </div>
+
+      <!-- page contents -->
+      <div ng-view="">
+      </div>
     </div>
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>

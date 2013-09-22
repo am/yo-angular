@@ -22,7 +22,7 @@ angular.module('app')
         // for each list fetch contents
         angular.forEach(lists, function(value, key) {
           
-          Restangular.all('lists/1/movies').getList({id: lists[key].id})
+          Restangular.all('lists/' + lists[key].id + '/movies').getList()
             .then(function(data) {
 
               lists[key].movies = data.movies;
