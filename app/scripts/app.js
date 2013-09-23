@@ -19,6 +19,10 @@ angular.module('yoAngularApp', ['ngRoute', 'restangular'])
         templateUrl: 'views/movies.html',
         controller: 'MoviesCtrl'
       })
+      .when('/seasons', {
+        templateUrl: 'views/seasons.html',
+        controller: 'TvshowsCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

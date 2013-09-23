@@ -9,7 +9,7 @@ angular.module('yoAngularApp')
     },
     {
       name: 'Series',
-      link: '#/tv-shows'
+      link: '#/seasons'
     },
     {
       name: 'Selection',

@@ -8,7 +8,7 @@ First you will need [node.js](http://nodejs.org/) and [yeoman](http://yeoman.io/
 
 To run the project you need first to download the packages, run `npm install` and `bower install`. 
 
-# local develpment
+## local develpment
 
 Start the server with `grunt server`.
 

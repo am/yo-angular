@@ -1,0 +1,9 @@
+<div class="seasons">
+  <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="seasons in seasons">
+    <a href="#/season/{{seasons.id}}">
+      <img class='img-rounded thumbnail' ng-src="{{seasons.artwork.thumb}}">
+      <small>{{seasons.title}}</small>
+      <div class='btn btn-default btn-xs'>{{seasons.lowest_price}}</div>
+    </a>
+  </div>  
+</div>

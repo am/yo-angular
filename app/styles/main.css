@@ -4,13 +4,8 @@ body {
   color: #333;
 }
 
-.frontpage .movie-thumb {
-  height: 220px;
-}
-
-.movies .movie-thumb {
+.frontpage .movie-thumb, .movies .movie-thumb, .seasons .movie-thumb {
   height: 240px;
-  white-space: nowrap;
 }
 
 .movies .movie-thumb small {
