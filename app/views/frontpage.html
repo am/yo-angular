@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container frontpage">
   <h1>wuaki.tv</h1>
   <ul class='list-unstyled'>
       <li class='row' ng-repeat="list in lists">
         <h2>{{list.name}}</h2>
-          <div class='col-sm-4 col-md-2' ng-repeat="movie in list.movies">
+          <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="movie in list.movies">
             <a href="#/movies/{{movie.id}}">
               <img class='img-rounded thumbnail' src="{{movie.artwork.thumb}}">
               <p>{{movie.title}}</p>
@@ -12,4 +12,3 @@
       </li>
   </ul>
 </div>
-<p>api v.{{api.version}}</p>

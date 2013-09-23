@@ -4,6 +4,10 @@ body {
   color: #333;
 }
 
+.frontpage .movie-thumb {
+  height: 220px;
+}
+
 .w-header {
   padding-top: 20px;
 }

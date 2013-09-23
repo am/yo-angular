@@ -22,4 +22,9 @@ angular.module('app', ['ngRoute', 'restangular'])
       RestangularProvider.setBaseUrl('https://uk-playground-api.wuaki.tv/');
       RestangularProvider.setRequestSuffix('.json');
 
-  });
+  })
+  .controller('AppCtrl', ['$scope', 'Restangular', function($scope, Restangular){
+    Restangular.all("version").getList().then(function(data){
+      $scope.api = data.api;
+    });
+  }]);

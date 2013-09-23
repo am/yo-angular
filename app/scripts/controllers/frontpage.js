@@ -1,36 +1,20 @@
 'use strict';
 
 angular.module('app')
-  .controller('FrontpageCtrl', ['$scope', '$http', 'Restangular', function ($scope, $http, Restangular) {
-
-    var api, lists;
-
-    Restangular.all("version").getList()
-    .then(function(data) {
-      api = data.api;
-      $scope.api = api;
-    });
-
-    // fetch all lists
-    Restangular.all('lists').getList({frontpage: true})
-      .then(function(data) {
-        lists = data.lists;
-        $scope.lists = lists;
-        console.log('> ', lists);
-        
-
-        // for each list fetch contents
-        angular.forEach(lists, function(value, key) {
-          
-          Restangular.all('lists/' + lists[key].id + '/movies').getList()
-            .then(function(data) {
-
-              lists[key].movies = data.movies;
-
-              window.d = data;
-            });
-          
-        });
-
+.controller('FrontpageCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
+  var lists;
+  // fetch all lists to get the respective id's
+  Restangular.all('lists').getList({frontpage: true})
+  .then(function(data) {
+    // save lists data to model
+    lists = data.lists;
+    // fetch movies content for each list
+    angular.forEach(lists, function(value, key) {
+      Restangular.all('lists/' + lists[key].id + '/movies').getList().then(function(data) {
+        lists[key].movies = data.movies;
       });
-    }]);
+    });
+    // pass model to the view
+    $scope.lists = lists;
+  });
+}]);
