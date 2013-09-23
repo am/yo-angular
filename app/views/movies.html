@@ -1,0 +1,9 @@
+<div class="movies">
+  <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="movie in movies">
+    <a href="#/movie/{{movie.id}}">
+      <img class='img-rounded thumbnail' ng-src="{{movie.artwork.thumb}}">
+      <small>{{movie.title}}</small>
+      <div class='btn btn-default btn-xs'>{{movie.lowest_price}}</div>
+    </a>
+  </div>  
+</div>

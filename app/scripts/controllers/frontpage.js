@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app')
+angular.module('yoAngularApp')
 .controller('FrontpageCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
   var lists;
   // fetch all lists to get the respective id's

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app', ['ngRoute', 'restangular'])
+angular.module('yoAngularApp', ['ngRoute', 'restangular'])
   .config(function ($routeProvider, RestangularProvider) {
     $routeProvider
       .when('/', {
@@ -14,6 +14,10 @@ angular.module('app', ['ngRoute', 'restangular'])
       .when('/movie/:id', {
         templateUrl: 'views/movie.html',
         controller: 'MovieCtrl'
+      })
+      .when('/movies', {
+        templateUrl: 'views/movies.html',
+        controller: 'MoviesCtrl'
       })
       .otherwise({
         redirectTo: '/'

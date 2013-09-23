@@ -8,6 +8,18 @@ body {
   height: 220px;
 }
 
+.movies .movie-thumb {
+  height: 240px;
+  white-space: nowrap;
+}
+
+.movies .movie-thumb small {
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .w-header {
   padding-top: 20px;
 }

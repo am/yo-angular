@@ -1,6 +1,6 @@
   'use strict';
 
-angular.module('app')
+angular.module('yoAngularApp')
 .controller('NavbarCtrl', function ($scope) {
   $scope.items = [
     {

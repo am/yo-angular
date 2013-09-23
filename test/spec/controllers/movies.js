@@ -3,7 +3,7 @@
 describe('Controller: MoviesCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('angularAppApp'));
+  beforeEach(module('yoAngularApp'));
 
   var MoviesCtrl,
     scope;
