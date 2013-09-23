@@ -4,8 +4,8 @@
       <li class='row' ng-repeat="list in lists">
         <h2>{{list.name}}</h2>
           <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="movie in list.movies">
-            <a href="#/movies/{{movie.id}}">
-              <img class='img-rounded thumbnail' src="{{movie.artwork.thumb}}">
+            <a href="#/movie/{{movie.id}}">
+              <img class='img-rounded thumbnail' ng-src="{{movie.artwork.thumb}}">
               <p>{{movie.title}}</p>
             </a>
           </div>

@@ -11,16 +11,18 @@ angular.module('app', ['ngRoute', 'restangular'])
         templateUrl: 'views/frontpage.html',
         controller: 'FrontpageCtrl'
       })
-      .when('/movies/:id', {
-        templateUrl: 'views/movies.html',
-        controller: 'MoviesCtrl'
+      .when('/movie/:id', {
+        templateUrl: 'views/movie.html',
+        controller: 'MovieCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
 
+      // REST config
       RestangularProvider.setBaseUrl('https://uk-playground-api.wuaki.tv/');
       RestangularProvider.setRequestSuffix('.json');
+      RestangularProvider.setDefaultHttpFields({cache: true});
 
   })
   .controller('AppCtrl', ['$scope', 'Restangular', function($scope, Restangular){
