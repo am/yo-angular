@@ -1,13 +1,12 @@
 <div class='row'>
     <div class="col-md-6">
-        <img ng-src="{{movie.artwork.detail}}" alt="">
+        <img class='img-rounded' ng-src="{{movie.artwork.detail}}" alt="">
     </div>
     <div class="col-md-6">
       <h2>{{movie.title}}</h2>
-      <div class="pull-left">
-        <a class='btn btn-primary' href='/#/'>back</a>
-      </div>
+      <div class='btn btn-default btn-xs' disabled='disabled'>{{movie.year}}</div>
       <p>{{movie.plot}}</p>   
+      <a class='btn btn-primary' href='/#/'>back</a>
   </div>
 </div>
 
