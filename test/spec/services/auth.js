@@ -7,13 +7,24 @@ describe('Service: auth', function () {
 
   // instantiate service
   var auth;
-  beforeEach(inject(function (_auth_) {
-    auth = _auth_;
+  beforeEach(inject(function (_Auth_) {
+    auth = _Auth_;
   }));
 
-  // it('should do something', function () {
-  //   console.log('>>>>>> ' + auth);
-  //   expect(!!auth).toBe(true);
-  // });
+  it('should exists', function () {
+    expect(!!auth).toBe(true);
+  });
+
+
+  it('should authenticate the user', function () {
+    auth.setUserAuthenticated(true);
+    expect(auth.getUserAuthenticated()).toBe(true);
+  });
+
+  it('should de-authenticate the user', function () {
+    auth.setUserAuthenticated(false);
+    expect(auth.getUserAuthenticated()).toBe(false);
+  });
+
 
 });
