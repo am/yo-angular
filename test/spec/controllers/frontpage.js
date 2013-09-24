@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: NavbarCtrl', function () {
+describe('Controller: FrontpageCtrl', function () {
 
   // load the controller's module
   beforeEach(module('yoAngularApp'));
 
-  var NavbarCtrl,
+  var FrontpageCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    NavbarCtrl = $controller('NavbarCtrl', {
+    FrontpageCtrl = $controller('FrontpageCtrl', {
       $scope: scope
     });
   }));
