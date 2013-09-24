@@ -15,16 +15,16 @@ describe('Service: auth', function () {
     expect(!!auth).toBe(true);
   });
 
+  describe('Auth API', function () {
 
-  it('should authenticate the user', function () {
-    auth.setUserAuthenticated(true);
-    expect(auth.getUserAuthenticated()).toBe(true);
+    it('should authenticate the user', function () {
+      auth.setUserAuthenticated(true);
+      expect(auth.getUserAuthenticated()).toBe(true);
+    });
+
+    it('should de-authenticate the user', function () {
+      auth.setUserAuthenticated(false);
+      expect(auth.getUserAuthenticated()).toBe(false);
+    });
   });
-
-  it('should de-authenticate the user', function () {
-    auth.setUserAuthenticated(false);
-    expect(auth.getUserAuthenticated()).toBe(false);
-  });
-
-
 });

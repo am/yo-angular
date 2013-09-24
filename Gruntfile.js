@@ -51,6 +51,10 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
+      },
+      karma: {
+        files: ['app/scripts/**/*.js', 'test/spec/**/*.js'],
+        tasks: ['karma:unit:run'] //NOTE the :run flag
       }
     },
     autoprefixer: {
@@ -83,6 +87,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
+          port: 9001,
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),
@@ -287,7 +292,7 @@ module.exports = function (grunt) {
     karma: {
       unit: {
         configFile: 'karma.conf.js',
-        singleRun: true
+        background: true
       }
     },
     cdnify: {

@@ -2,37 +2,60 @@
 
 angular.module('yoAngularApp', ['ngRoute', 'restangular'])
   .config(function ($routeProvider, RestangularProvider) {
-    $routeProvider
-      .when('/', {
+    $routeProvider.routes = 
+    {
+      '/frontpage': {
         templateUrl: 'views/frontpage.html',
-        controller: 'FrontpageCtrl'
-      })
-      .when('/frontpage', {
-        templateUrl: 'views/frontpage.html',
-        controller: 'FrontpageCtrl'
-      })
-      .when('/movie/:id', {
+        controller: 'FrontpageCtrl',
+        auth: false
+      },
+      '/movie/:id': {
         templateUrl: 'views/movie.html',
-        controller: 'MovieCtrl'
-      })
-      .when('/movies', {
+        controller: 'MovieCtrl',
+        auth: true
+      },
+      '/movies': {
         templateUrl: 'views/movies.html',
-        controller: 'MoviesCtrl'
-      })
-      .when('/seasons', {
+        controller: 'MoviesCtrl',
+        auth: true
+      },
+      '/seasons': {
         templateUrl: 'views/seasons.html',
-        controller: 'TvshowsCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+        controller: 'TvshowsCtrl',
+        auth: false
+      }
+    }
 
-      // REST config
-      RestangularProvider.setBaseUrl('https://uk-playground-api.wuaki.tv/');
-      RestangularProvider.setRequestSuffix('.json');
-      RestangularProvider.setDefaultHttpFields({cache: true});
+    // config app router
+    for(var path in $routeProvider.routes) {
+      $routeProvider.when(path, $routeProvider.routes[path]);
+    }
+    $routeProvider.otherwise({redirectTo: '/frontpage'});
+
+    // REST config
+    RestangularProvider.setBaseUrl('https://uk-playground-api.wuaki.tv/');
+    RestangularProvider.setRequestSuffix('.json');
+    RestangularProvider.setDefaultHttpFields({cache: true});
 
   })
+  .run(['$rootScope', '$route', 'Auth', function ($rootScope, $routeProvider, authService) {
+      
+      $rootScope.$on("$locationChangeStart", function(event, next, current) {
+        console.log('change route: ', next, current);
+        console.log('auth: ', authService);
+  
+        for(var i in $routeProvider.routes) {
+          if(next.indexOf(i) != -1) {
+            console.log('need auth: ', $routeProvider.routes[i].auth);
+            if($routeProvider.routes[i].auth && !authService.getUserAuthenticated()) {
+              alert("You need to be authenticated to see this page!");
+              event.preventDefault();
+            }
+          }
+        }
+      });
+  
+    }])
   .controller('AppCtrl', ['$scope', 'Restangular', function($scope, Restangular){
     Restangular.all("version").getList().then(function(data){
       $scope.api = data.api;
