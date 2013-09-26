@@ -1,3 +1,4 @@
+<small>this is iOS template</small>
 <div class="container frontpage">
   <ul class='list-unstyled'>
       <li class='row' ng-repeat="list in lists">
@@ -5,7 +6,7 @@
           <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="movie in list.movies">
             <a href="#/movie/{{movie.id}}">
               <img class='img-rounded thumbnail' ng-src="{{movie.artwork.thumb}}">
-              <p>{{movie.title | shortTitle}}</p>
+              <p>{{movie.title}}</p>
             </a>
           </div>
       </li>

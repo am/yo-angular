@@ -5,7 +5,10 @@ angular.module('yoAngularApp', ['ngRoute', 'restangular'])
     $routeProvider.routes = 
     {
       '/frontpage': {
-        templateUrl: 'views/frontpage.html',
+        templateUrl: function() {
+          var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+          return 'views/frontpage' + (iOS ? '_m' : '') + '.html';
+        },
         controller: 'FrontpageCtrl',
         auth: false
       },
