@@ -1,21 +1,24 @@
 <div class="container frontpage">
-    <div class="dropdown">
-        <input data-toggle="dropdown" type="text" class="form-control" ng-model="searchMovies"/>
-        <ul class="dropdown-menu">
-            <li role="presentation" ng-repeat="content in contents |filter:searchMovies ">
-                <a role="menuitem" href="#/{{content.id}}">{{content.title}}</a>
-            </li>
-        </ul>
-    </div>
-  <ul class='list-unstyled'>
-      <li class='row' ng-repeat="list in lists">
-        <h2>{{list.name}}</h2>
-          <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="movie in list.movies">
-            <a href="#/movie/{{movie.id}}">
-              <img class='img-rounded thumbnail' ng-src="{{movie.artwork.thumb}}">
-              <p>{{movie.title | shortTitle}}</p>
-            </a>
-          </div>
+  <div class="dropdown">
+    <input data-toggle="dropdown" type="text" class="form-control" ng-model="searchMovies"/>
+    <ul class="dropdown-menu">
+      <li role="presentation" ng-repeat="content in contents |filter:searchMovies |limitTo:10">
+        <a role="menuitem" href="#/{{content.id}}">{{content.title}}</a>
       </li>
+    </ul>
+  </div>
+  <ul class='list-unstyled'>
+    <li class='row' ng-repeat="list in lists">
+      <h2>{{list.name}}</h2>
+      <div class='col-sm-4 col-md-2 movie-thumb' ng-repeat="movie in list.movies">
+        <a href="#/movie/{{movie.id}}">
+          <img class='img-rounded thumbnail' ng-src="{{movie.artwork.thumb}}">
+          <p>{{movie.title | shortTitle}}</p>
+        </a>
+        <button class="btn">
+          <span class="glyphicon glyphicon-plane"></span>
+        </button>
+      </div>
+    </li>
   </ul>
 </div>
