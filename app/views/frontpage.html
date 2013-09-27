@@ -1,4 +1,12 @@
 <div class="container frontpage">
+    <div class="dropdown">
+        <input data-toggle="dropdown" type="text" class="form-control" ng-model="searchMovies"/>
+        <ul class="dropdown-menu">
+            <li role="presentation" ng-repeat="content in contents |filter:searchMovies ">
+                <a role="menuitem" href="#/{{content.id}}">{{content.title}}</a>
+            </li>
+        </ul>
+    </div>
   <ul class='list-unstyled'>
       <li class='row' ng-repeat="list in lists">
         <h2>{{list.name}}</h2>
